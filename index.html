@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="כתר רהיטים – חנות רהיטים מודרנית ואיכותית. ארונות קיר, ארונות הזזה, עמדות עבודה, כוורות, כונניות ומגירות שירות." />
+  <title>כתר רהיטים | עיצוב הבית שלך</title>
+
+  <!-- Google Fonts: Assistant -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Skip to content link for accessibility -->
+  <a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
+
+  <!-- ===== HEADER / NAVBAR ===== -->
+  <header class="navbar" role="banner" id="top">
+    <div class="navbar__inner">
+
+      <!-- Logo -->
+      <a href="#home" class="logo" onclick="event.preventDefault(); scrollToSection('home')">
+        <span class="logo-crown">♛</span>
+        <div class="logo-text">
+          <span class="logo-name">כתר</span>
+          <span class="logo-sub">רהיטים</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="navbar__nav" role="navigation" aria-label="ניווט ראשי">
+        <ul class="navbar__links" role="list">
+          <li><a href="#home" class="nav-link active">בית</a></li>
+          <li><a href="#about" class="nav-link">אודות</a></li>
+          <li><a href="#deals" class="nav-link">מבצעים</a></li>
+          <li><a href="#products" class="nav-link">מוצרים</a></li>
+          <li><a href="#gallery" class="nav-link">גלריה</a></li>
+          <li><a href="#branches" class="nav-link">סניפים</a></li>
+        </ul>
+      </nav>
+
+      <!-- Navbar Actions -->
+      <div class="navbar__actions">
+        <!-- Search Toggle -->
+        <button class="icon-btn" id="searchToggle" aria-label="פתח חיפוש" aria-expanded="false" aria-controls="searchBar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+          </svg>
+        </button>
+
+        <!-- Favorites -->
+        <a href="#favorites" class="icon-btn" id="favNavBtn" aria-label="מועדפים" role="button">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+          </svg>
+          <span class="fav-count" id="favCount" aria-live="polite" aria-label="מספר מוצרים במועדפים">0</span>
+        </a>
+
+        <!-- Hamburger (Mobile) -->
+        <button class="hamburger" id="hamburger" aria-label="פתח תפריט" aria-expanded="false" aria-controls="mobileMenu">
+          <span class="hamburger__line" aria-hidden="true"></span>
+          <span class="hamburger__line" aria-hidden="true"></span>
+          <span class="hamburger__line" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-bar" id="searchBar" role="search" aria-hidden="true">
+      <div class="search-bar__inner">
+        <label for="searchInput" class="sr-only">חפש מוצרים</label>
+        <input
+          type="search"
+          id="searchInput"
+          class="search-input"
+          placeholder="חפש מוצרים..."
+          autocomplete="off"
+          aria-label="חפש מוצרים"
+        />
+        <button class="search-close" id="searchClose" aria-label="סגור חיפוש">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="תפריט ניווט" aria-hidden="true">
+    <nav aria-label="תפריט ניווט נייד">
+      <ul class="mobile-menu__links" role="list">
+        <li><a href="#home" class="mobile-nav-link">🏠 בית</a></li>
+        <li><a href="#about" class="mobile-nav-link">ℹ️ אודות</a></li>
+        <li><a href="#deals" class="mobile-nav-link">🏷️ מבצעים</a></li>
+        <li><a href="#products" class="mobile-nav-link">🛋️ מוצרים</a></li>
+        <li><a href="#gallery" class="mobile-nav-link">🖼️ גלריה</a></li>
+        <li><a href="#branches" class="mobile-nav-link">📍 סניפים</a></li>
+      </ul>
+    </nav>
+  </div>
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay" aria-hidden="true"></div>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main id="main-content">
+
+    <!-- ===== HERO CAROUSEL / HOME ===== -->
+    <section id="home" class="hero-section" aria-label="קרוסלת פתיחה">
+      <div class="hero-carousel" id="heroCarousel" role="region" aria-label="קרוסלת מבצעים והשראה" aria-roledescription="carousel">
+        <div class="hero-carousel-track" id="heroCarouselTrack" aria-live="polite">
+          <!-- Slides injected by JS -->
+        </div>
+
+        <!-- RTL: nextBtn (ימין) = הבא | prevBtn (שמאל) = קודם -->
+        <button class="hero-carousel-btn prev-btn" id="heroPrevBtn" aria-label="שקופית קודמת">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <button class="hero-carousel-btn next-btn" id="heroNextBtn" aria-label="שקופית הבאה">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+
+        <div class="hero-carousel-dots" id="heroCarouselDots" role="tablist" aria-label="ניווט בין שקופיות פתיחה"></div>
+      </div>
+    </section>
+
+    <!-- ===== STATS BAR ===== -->
+    <div class="stats-bar fade-in" aria-label="נתונים מרכזיים על החברה">
+      <div class="stat">
+        <span class="stat-num">500+</span>
+        <span class="stat-label">מוצרים</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">15+</span>
+        <span class="stat-label">שנות ניסיון</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">10,000+</span>
+        <span class="stat-label">לקוחות מרוצים</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">2</span>
+        <span class="stat-label">סניפים</span>
+      </div>
+    </div>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="about section fade-in" aria-labelledby="aboutTitle">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">מי אנחנו</span>
+          <h2 id="aboutTitle" class="section-title">הסיפור שלנו</h2>
+        </div>
+        <div class="about__grid">
+          <div class="about__text">
+            <p>כתר רהיטים נוסדה לפני למעלה מ-20 שנה מתוך חזון אחד פשוט: לספק רהיטים איכותיים, עמידים ויפים לכל בית ישראלי.</p>
+            <p>אנחנו מתמחים בייצור ועיצוב פתרונות אחסון חכמים — ארונות קיר, ארונות הזזה, כוורות, כונניות, עמדות עבודה ומגירות שירות — הכל בהתאמה אישית לצרכי הלקוח.</p>
+            <p>צוות המעצבים והאנשי המקצוע שלנו עובד בלי פשרות על האיכות, כך שכל מוצר שיוצא מהמפעל שלנו עומד בסטנדרטים הגבוהים ביותר.</p>
+            <div class="about__stats" role="list" aria-label="נתוני החברה">
+              <div class="stat-item" role="listitem">
+                <strong class="stat-num">20+</strong>
+                <span class="stat-label">שנות ניסיון</span>
+              </div>
+              <div class="stat-item" role="listitem">
+                <strong class="stat-num">5K+</strong>
+                <span class="stat-label">לקוחות מרוצים</span>
+              </div>
+              <div class="stat-item" role="listitem">
+                <strong class="stat-num">500+</strong>
+                <span class="stat-label">מוצרים</span>
+              </div>
+              <div class="stat-item" role="listitem">
+                <strong class="stat-num">6</strong>
+                <span class="stat-label">קטגוריות</span>
+              </div>
+            </div>
+          </div>
+          <div class="about__visual" aria-hidden="true">
+            <img
+              class="about__img-sample"
+              src="https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=900&q=80"
+              alt="אולם תצוגה של כתר רהיטים"
+              loading="lazy"
+              width="900"
+              height="700"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DEALS / PROMOTIONS ===== -->
+    <section id="deals" class="deals section fade-in" aria-labelledby="dealsTitle">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">הצעות מיוחדות</span>
+          <h2 id="dealsTitle" class="section-title">מבצעים החודש</h2>
+        </div>
+        <div class="deals__grid">
+          <article class="deal-card deal-card--featured" aria-label="מבצע: ארון קיר 3 דלתות" data-product-id="p001" tabindex="0" role="button" aria-pressed="false">
+            <div class="deal-card__face deal-card__front">
+              <div class="deal-card__img-wrap">
+                <img class="deal-card__img" src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=900&q=80" alt="ארון קיר 3 דלתות" loading="lazy" width="900" height="700" />
+                <button class="deal-card__fav-quick" data-product-id="p001" aria-label="הוסף למועדפים: ארון קיר קלאסי 3 דלתות" aria-pressed="false">♥</button>
+                <div class="deal-card__badge" aria-label="הנחה">-30%</div>
+              </div>
+              <div class="deal-card__body">
+                <h3 class="deal-card__title">ארון קיר 3 דלתות</h3>
+                <p class="deal-card__desc">ארון קיר מרווח בעיצוב מינימליסטי</p>
+                <div class="deal-card__prices">
+                  <span class="price-old" aria-label="מחיר מקורי">₪2,990</span>
+                  <span class="price-new" aria-label="מחיר מבצע">₪2,099</span>
+                </div>
+                <p class="deal-card__hint">לחץ להפיכת הכרטיס</p>
+              </div>
+            </div>
+            <div class="deal-card__face deal-card__back" aria-hidden="true">
+              <h3 class="deal-card__back-title">ארון קיר 3 דלתות</h3>
+              <p class="deal-card__back-desc">מבצע מוגבל לחודש זה בלבד. כולל הובלה והרכבה בהנחה מיוחדת.</p>
+              <p class="deal-card__back-price">₪2,099</p>
+              <p class="deal-card__hint">לחץ שוב כדי לחזור לצד הקדמי</p>
+            </div>
+          </article>
+
+          <article class="deal-card" aria-label="מבצע: עמדת עבודה" data-product-id="p003" tabindex="0" role="button" aria-pressed="false">
+            <div class="deal-card__face deal-card__front">
+              <div class="deal-card__img-wrap">
+                <img class="deal-card__img" src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=900&q=80" alt="עמדת עבודה" loading="lazy" width="900" height="700" />
+                <button class="deal-card__fav-quick" data-product-id="p003" aria-label="הוסף למועדפים: עמדת עבודה ביתית מינימל" aria-pressed="false">♥</button>
+                <div class="deal-card__badge" aria-label="הנחה">-20%</div>
+              </div>
+              <div class="deal-card__body">
+                <h3 class="deal-card__title">עמדת עבודה</h3>
+                <p class="deal-card__desc">פתרון מושלם לעבודה מהבית</p>
+                <div class="deal-card__prices">
+                  <span class="price-old" aria-label="מחיר מקורי">₪1,490</span>
+                  <span class="price-new" aria-label="מחיר מבצע">₪1,192</span>
+                </div>
+                <p class="deal-card__hint">לחץ להפיכת הכרטיס</p>
+              </div>
+            </div>
+            <div class="deal-card__face deal-card__back" aria-hidden="true">
+              <h3 class="deal-card__back-title">עמדת עבודה</h3>
+              <p class="deal-card__back-desc">שילוב ארגונומי מלא לעבודה יומיומית נוחה, עם אחריות לשנה.</p>
+              <p class="deal-card__back-price">₪1,192</p>
+              <p class="deal-card__hint">לחץ שוב כדי לחזור לצד הקדמי</p>
+            </div>
+          </article>
+
+          <article class="deal-card" aria-label="מבצע: כוורת ספרים" data-product-id="p004" tabindex="0" role="button" aria-pressed="false">
+            <div class="deal-card__face deal-card__front">
+              <div class="deal-card__img-wrap">
+                <img class="deal-card__img" src="https://images.unsplash.com/photo-1538688525198-9b88f6f53126?w=900&q=80" alt="כוורת ספרים" loading="lazy" width="900" height="700" />
+                <button class="deal-card__fav-quick" data-product-id="p004" aria-label="הוסף למועדפים: כוורת ספרים מודרנית 5 מדפים" aria-pressed="false">♥</button>
+                <div class="deal-card__badge" aria-label="הנחה">-15%</div>
+              </div>
+              <div class="deal-card__body">
+                <h3 class="deal-card__title">כוורת ספרים</h3>
+                <p class="deal-card__desc">5 מדפים עם עיצוב עץ טבעי</p>
+                <div class="deal-card__prices">
+                  <span class="price-old" aria-label="מחיר מקורי">₪890</span>
+                  <span class="price-new" aria-label="מחיר מבצע">₪756</span>
+                </div>
+                <p class="deal-card__hint">לחץ להפיכת הכרטיס</p>
+              </div>
+            </div>
+            <div class="deal-card__face deal-card__back" aria-hidden="true">
+              <h3 class="deal-card__back-title">כוורת ספרים</h3>
+              <p class="deal-card__back-desc">פריט עיצוב ופונקציונליות יחד, בגימור עץ איכותי ובהנחה מיוחדת.</p>
+              <p class="deal-card__back-price">₪756</p>
+              <p class="deal-card__hint">לחץ שוב כדי לחזור לצד הקדמי</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CATEGORIES ===== -->
+    <section id="categories" class="categories section fade-in" aria-labelledby="categoriesTitle">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">מה תמצאו אצלנו</span>
+          <h2 id="categoriesTitle" class="section-title">קטגוריות</h2>
+        </div>
+        <div class="categories__grid" role="list" aria-label="קטגוריות מוצרים">
+          <button class="category-card" data-category="ארונות קיר" role="listitem" aria-pressed="false" aria-label="סנן לפי ארונות קיר">
+            <span class="cat-icon" aria-hidden="true">🗄️</span>
+            <span class="cat-name">ארונות קיר</span>
+          </button>
+          <button class="category-card" data-category="ארונות הזזה" role="listitem" aria-pressed="false" aria-label="סנן לפי ארונות הזזה">
+            <span class="cat-icon" aria-hidden="true">🚪</span>
+            <span class="cat-name">ארונות הזזה</span>
+          </button>
+          <button class="category-card" data-category="עמדות עבודה" role="listitem" aria-pressed="false" aria-label="סנן לפי עמדות עבודה">
+            <span class="cat-icon" aria-hidden="true">🖥️</span>
+            <span class="cat-name">עמדות עבודה</span>
+          </button>
+          <button class="category-card" data-category="כוורות" role="listitem" aria-pressed="false" aria-label="סנן לפי כוורות">
+            <span class="cat-icon" aria-hidden="true">📚</span>
+            <span class="cat-name">כוורות</span>
+          </button>
+          <button class="category-card" data-category="כונניות" role="listitem" aria-pressed="false" aria-label="סנן לפי כונניות">
+            <span class="cat-icon" aria-hidden="true">🗂️</span>
+            <span class="cat-name">כונניות</span>
+          </button>
+          <button class="category-card" data-category="מגירות שירות" role="listitem" aria-pressed="false" aria-label="סנן לפי מגירות שירות">
+            <span class="cat-icon" aria-hidden="true">🗃️</span>
+            <span class="cat-name">מגירות שירות</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PRODUCTS ===== -->
+    <section id="products" class="products section fade-in" aria-labelledby="productsTitle">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">הקולקציה שלנו</span>
+          <h2 id="productsTitle" class="section-title">כל המוצרים</h2>
+          <p class="products__hint" aria-live="polite" id="productsCount"></p>
+        </div>
+
+        <div class="products__grid" id="productsGrid" aria-label="רשימת מוצרים" aria-live="polite">
+          <!-- Cards injected by JS -->
+        </div>
+
+        <p class="products__empty" id="productsEmpty" aria-live="assertive" hidden>לא נמצאו מוצרים התואמים את החיפוש.</p>
+      </div>
+    </section>
+
+    <!-- ===== FAVORITES ===== -->
+    <section id="favorites" class="favorites section fade-in" aria-labelledby="favoritesTitle" hidden>
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">הרשימה שלי</span>
+          <h2 id="favoritesTitle" class="section-title">המוצרים שאהבתי ❤️</h2>
+        </div>
+        <div class="products__grid" id="favoritesGrid" aria-label="רשימת מוצרים מועדפים" aria-live="polite">
+          <!-- Injected by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PRODUCT DETAIL VIEW ===== -->
+    <section id="product-detail" class="product-detail section" aria-labelledby="productDetailTitle" hidden>
+      <div class="container">
+        <button class="btn btn--secondary back-btn" id="backBtn" aria-label="חזור לרשימת המוצרים">
+          ← חזרה למוצרים
+        </button>
+        <div class="product-detail__inner" id="productDetailInner">
+          <!-- Injected by JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== GALLERY ===== -->
+    <section id="gallery" class="gallery section fade-in" aria-labelledby="galleryTitle">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">השראה לבית</span>
+          <h2 id="galleryTitle" class="section-title">גלריית תמונות</h2>
+        </div>
+
+        <!-- Carousel -->
+        <div class="carousel" role="region" aria-label="קרוסלה של תמונות השראה" aria-roledescription="carousel">
+          <div class="carousel__track" id="carouselTrack" aria-live="polite">
+            <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="שקף 1 מתוך 4">
+              <figure class="carousel-media">
+                <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1400&q=80" alt="סלון מודרני עם ריהוט פרמיום" loading="lazy" width="1400" height="900" />
+                <figcaption>סלון מודרני חם בגווני עץ טבעי</figcaption>
+              </figure>
+            </div>
+            <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="שקף 2 מתוך 4">
+              <figure class="carousel-media">
+                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1400&q=80" alt="חדר שינה מעוצב עם ארון קיר" loading="lazy" width="1400" height="900" />
+                <figcaption>חדר שינה נקי עם פתרונות אחסון חכמים</figcaption>
+              </figure>
+            </div>
+            <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="שקף 3 מתוך 4">
+              <figure class="carousel-media">
+                <img src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=1400&q=80" alt="פינת עבודה ביתית מעוצבת" loading="lazy" width="1400" height="900" />
+                <figcaption>משרד ביתי מאוזן לפרודוקטיביות</figcaption>
+              </figure>
+            </div>
+            <div class="carousel__slide" role="group" aria-roledescription="slide" aria-label="שקף 4 מתוך 4">
+              <figure class="carousel-media">
+                <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=1400&q=80" alt="חדר ילדים עם כוורות אחסון" loading="lazy" width="1400" height="900" />
+                <figcaption>חדר ילדים פונקציונלי ומלא אופי</figcaption>
+              </figure>
+            </div>
+          </div>
+          <div class="carousel__controls">
+            <button class="carousel__btn carousel__btn--next" id="carouselNext" aria-label="שקף הבא">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="carousel__dots" id="carouselDots" role="tablist" aria-label="ניווט בין שקפים">
+              <!-- Dots injected by JS -->
+            </div>
+
+            <button class="carousel__btn carousel__btn--prev" id="carouselPrev" aria-label="שקף קודם">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== VIDEO SECTION ===== -->
+  <section id="video" class="video-section">
+    <div class="container">
+      <div class="section-header light fade-in">
+        <div class="section-badge light">הכירו אותנו</div>
+        <h2>סרטון הקולקציה</h2>
+        <p>גלו את עולם כתר רהיטים</p>
+      </div>
+      <div class="video-frame-wrap">
+        <div class="video-frame">
+          <iframe
+            src="https://www.youtube.com/embed/HnBzPPxiUt4?rel=0&modestbranding=1"
+            title="כתר רהיטים – קולקציית ריהוט"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- ===== BRANCHES ===== -->
+    <section id="branches" class="branches section fade-in" aria-labelledby="branchesTitle">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow">מאיפה אנחנו</span>
+          <h2 id="branchesTitle" class="section-title">הסניפים שלנו</h2>
+        </div>
+        <div class="branches__grid">
+
+          <article class="branch-card" aria-label="סניף תל אביב">
+            <div class="branch-card__icon" aria-hidden="true">📍</div>
+            <h3 class="branch-card__name">תל אביב</h3>
+            <address class="branch-card__address">
+              <p>רחוב דיזנגוף 123</p>
+              <p>תל אביב-יפו, 6433222</p>
+            </address>
+            <dl class="branch-card__info">
+              <dt>שעות פעילות:</dt>
+              <dd>א׳–ה׳: 09:00–19:00</dd>
+              <dd>ו׳: 09:00–14:00</dd>
+              <dt>טלפון:</dt>
+              <dd><a href="tel:+97258720809" aria-label="התקשר לסניף תל אביב">058-720-8090</a></dd>
+            </dl>
+          </article>
+
+          <article class="branch-card" aria-label="סניף ירושלים">
+            <div class="branch-card__icon" aria-hidden="true">📍</div>
+            <h3 class="branch-card__name">ירושלים</h3>
+            <address class="branch-card__address">
+              <p>רחוב יפו 45</p>
+              <p>ירושלים, 9424101</p>
+            </address>
+            <dl class="branch-card__info">
+              <dt>שעות פעילות:</dt>
+              <dd>א׳–ה׳: 09:00–19:00</dd>
+              <dd>ו׳: 09:00–14:00</dd>
+              <dt>טלפון:</dt>
+              <dd><a href="tel:+97225001234" aria-label="התקשר לסניף ירושלים">02-500-1234</a></dd>
+            </dl>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__bottom">
+        <p>&copy; <span id="currentYear"></span> כתר רהיטים. כל הזכויות שמורות.</p>
+        <a href="accesablity.html" class="footer__accessibility-link" aria-label="מעבר להצהרת נגישות">הצהרת נגישות</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== FAB BUTTONS ===== -->
+
+  <!-- WhatsApp FAB -->
+  <a
+    href="https://api.whatsapp.com/send?phone=972587208090"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="fab fab--whatsapp"
+    aria-label="צור קשר בוואטסאפ (נפתח בחלון חדש)"
+  >
+    <svg width="28" height="28" viewBox="0 0 32 32" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <path d="M16 2C8.268 2 2 8.268 2 16c0 2.478.676 4.8 1.856 6.8L2 30l7.372-1.832A13.94 13.94 0 0 0 16 30c7.732 0 14-6.268 14-14S23.732 2 16 2zm0 25.6a11.568 11.568 0 0 1-5.896-1.608l-.424-.256-4.376 1.088 1.12-4.256-.28-.44A11.568 11.568 0 0 1 4.4 16C4.4 9.592 9.592 4.4 16 4.4S27.6 9.592 27.6 16 22.408 27.6 16 27.6zm6.36-8.68c-.352-.176-2.072-1.02-2.392-1.136-.32-.12-.552-.176-.784.176-.232.352-.9 1.136-1.104 1.368-.2.232-.404.256-.752.08-.352-.176-1.48-.544-2.816-1.736-1.04-.928-1.744-2.072-1.944-2.424-.2-.352-.02-.544.152-.72.156-.156.352-.408.528-.608.176-.2.232-.352.352-.584.12-.232.06-.44-.028-.616-.088-.176-.784-1.896-1.072-2.6-.28-.68-.568-.588-.784-.6-.2-.008-.432-.012-.664-.012s-.608.088-.928.44c-.32.352-1.216 1.188-1.216 2.896s1.244 3.36 1.416 3.592c.176.232 2.448 3.736 5.932 5.24.828.356 1.476.568 1.98.728.832.264 1.588.228 2.188.14.668-.1 2.072-.848 2.364-1.664.288-.812.288-1.512.2-1.664-.08-.152-.312-.24-.664-.416z"/>
+    </svg>
+    <span class="sr-only">וואטסאפ</span>
+  </a>
+
+  <!-- Accessibility FAB -->
+  <button
+    class="fab fab--accessibility"
+    id="accessibilityFab"
+    aria-label="פתח תפריט נגישות"
+    aria-expanded="false"
+    aria-controls="accessibilityPanel"
+  >
+    <!-- <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="12" cy="4" r="2"/>
+      <path d="M12 7c-1.1 0-2 .9-2 2v4l-2 4h2l1-2h2l1 2h2l-2-4V9c0-1.1-.9-2-2-2z"/>
+      <path d="M7.5 12.5 6 20h2l1.5-5.5L12 16l2.5-1.5L16 20h2l-1.5-7.5"/>
+    </svg> -->
+    <svg fill="currentColor" width="36" height="36" id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 122.88 122.88"><title>accessibility</title><path d="M61.44,0A61.46,61.46,0,1,1,18,18,61.21,61.21,0,0,1,61.44,0Zm-.39,74.18L52.1,98.91a4.94,4.94,0,0,1-2.58,2.83A5,5,0,0,1,42.7,95.5l6.24-17.28a26.3,26.3,0,0,0,1.17-4,40.64,40.64,0,0,0,.54-4.18c.24-2.53.41-5.27.54-7.9s.22-5.18.29-7.29c.09-2.63-.62-2.8-2.73-3.3l-.44-.1-18-3.39A5,5,0,0,1,27.08,46a5,5,0,0,1,5.05-7.74l19.34,3.63c.77.07,1.52.16,2.31.25a57.64,57.64,0,0,0,7.18.53A81.13,81.13,0,0,0,69.9,42c.9-.1,1.75-.21,2.6-.29l18.25-3.42A5,5,0,0,1,94.5,39a5,5,0,0,1,1.3,7,5,5,0,0,1-3.21,2.09L75.15,51.37c-.58.13-1.1.22-1.56.29-1.82.31-2.72.47-2.61,3.06.08,1.89.31,4.15.61,6.51.35,2.77.81,5.71,1.29,8.4.31,1.77.6,3.19,1,4.55s.79,2.75,1.39,4.42l6.11,16.9a5,5,0,0,1-6.82,6.24,4.94,4.94,0,0,1-2.58-2.83L63,74.23,62,72.4l-1,1.78Zm.39-53.52a8.83,8.83,0,1,1-6.24,2.59,8.79,8.79,0,0,1,6.24-2.59Zm36.35,4.43a51.42,51.42,0,1,0,15,36.35,51.27,51.27,0,0,0-15-36.35Z"/></svg>
+
+    <span class="sr-only">נגישות</span>
+  </button>
+
+  <!-- Accessibility Panel -->
+  <div
+    class="accessibility-panel"
+    id="accessibilityPanel"
+    role="dialog"
+    aria-modal="false"
+    aria-label="תפריט נגישות"
+    aria-hidden="true"
+    hidden
+  >
+    <div class="accessibility-panel__header">
+      <h3 class="accessibility-panel__title">אפשרויות נגישות</h3>
+      <button class="accessibility-panel__close" id="accessibilityClose" aria-label="סגור תפריט נגישות">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+    <div class="accessibility-panel__options">
+      <button class="a11y-option" id="a11yIncreaseText" aria-pressed="false" aria-label="הגדל גודל טקסט">
+        <span class="a11y-option__icon" aria-hidden="true">A+</span>
+        <span class="a11y-option__label">הגדלת טקסט</span>
+      </button>
+      <button class="a11y-option" id="a11yDecreaseText" aria-pressed="false" aria-label="הקטן גודל טקסט">
+        <span class="a11y-option__icon" aria-hidden="true">A-</span>
+        <span class="a11y-option__label">הקטנת טקסט</span>
+      </button>
+      <button class="a11y-option" id="a11yHighContrast" aria-pressed="false" aria-label="הפעל מצב ניגודיות גבוהה">
+        <span class="a11y-option__icon" aria-hidden="true">◑</span>
+        <span class="a11y-option__label">ניגודיות גבוהה</span>
+      </button>
+      <button class="a11y-option" id="a11yReduceMotion" aria-pressed="false" aria-label="ביטול אנימציות">
+        <span class="a11y-option__icon" aria-hidden="true">⏸</span>
+        <span class="a11y-option__label">ביטול אנימציות</span>
+      </button>
+      <button class="a11y-option" id="a11yHighlightLinks" aria-pressed="false" aria-label="הדגש קישורים">
+        <span class="a11y-option__icon" aria-hidden="true">🔗</span>
+        <span class="a11y-option__label">הדגשת קישורים</span>
+      </button>
+      <button class="a11y-option a11y-option--reset" id="a11yReset" aria-label="אפס הגדרות נגישות">
+        <span class="a11y-option__icon" aria-hidden="true">↺</span>
+        <span class="a11y-option__label">איפוס</span>
+      </button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
